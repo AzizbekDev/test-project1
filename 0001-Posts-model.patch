@@ -1,0 +1,86 @@
+From 7739f67f472da8e8eea743ee9289be3543a08118 Mon Sep 17 00:00:00 2001
+From: azizbek8434 <azizbek_muzaffarov@mail.ru>
+Date: Wed, 12 Dec 2018 23:07:13 +0500
+Subject: [PATCH] Posts model
+
+---
+ app/Http/Controllers/PostController.php       | 10 ++++++
+ app/Post.php                                  | 10 ++++++
+ .../2018_12_12_180627_create_posts_table.php  | 31 +++++++++++++++++++
+ 3 files changed, 51 insertions(+)
+ create mode 100644 app/Http/Controllers/PostController.php
+ create mode 100644 app/Post.php
+ create mode 100644 database/migrations/2018_12_12_180627_create_posts_table.php
+
+diff --git a/app/Http/Controllers/PostController.php b/app/Http/Controllers/PostController.php
+new file mode 100644
+index 0000000..731a327
+--- /dev/null
++++ b/app/Http/Controllers/PostController.php
+@@ -0,0 +1,10 @@
++<?php
++
++namespace App\Http\Controllers;
++
++use Illuminate\Http\Request;
++
++class PostController extends Controller
++{
++    //
++}
+diff --git a/app/Post.php b/app/Post.php
+new file mode 100644
+index 0000000..44fdf5d
+--- /dev/null
++++ b/app/Post.php
+@@ -0,0 +1,10 @@
++<?php
++
++namespace App;
++
++use Illuminate\Database\Eloquent\Model;
++
++class Post extends Model
++{
++    //
++}
+diff --git a/database/migrations/2018_12_12_180627_create_posts_table.php b/database/migrations/2018_12_12_180627_create_posts_table.php
+new file mode 100644
+index 0000000..d12b95e
+--- /dev/null
++++ b/database/migrations/2018_12_12_180627_create_posts_table.php
+@@ -0,0 +1,31 @@
++<?php
++
++use Illuminate\Support\Facades\Schema;
++use Illuminate\Database\Schema\Blueprint;
++use Illuminate\Database\Migrations\Migration;
++
++class CreatePostsTable extends Migration
++{
++    /**
++     * Run the migrations.
++     *
++     * @return void
++     */
++    public function up()
++    {
++        Schema::create('posts', function (Blueprint $table) {
++            $table->increments('id');
++            $table->timestamps();
++        });
++    }
++
++    /**
++     * Reverse the migrations.
++     *
++     * @return void
++     */
++    public function down()
++    {
++        Schema::dropIfExists('posts');
++    }
++}
+-- 
+2.19.1.windows.1
+
