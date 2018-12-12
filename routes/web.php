@@ -16,3 +16,6 @@ Route::group([
         return view('admin.pages.index');
     });
 });
+Route::post('/test', function(){
+    return 'test';
+});
